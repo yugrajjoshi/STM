@@ -1,4 +1,4 @@
-/* Smart Task Manager - Base Styles */
+/* Smart Task Manager - Styles */
 
 * {
   margin: 0;
@@ -8,51 +8,416 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: rgb(29, 29, 29);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-  padding: 20px;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-}
-.app-container.header {
-  background: #764ba2;
+/* Header */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  margin: 0;
 }
-.banner{
-   color: rgb(52, 126, 216);
-   text-align: center;
-   position: relative;
-   top:-255px;
-   width: 1000px;
-   height: 75px;
-   font-weight: bold;
-   font-size: 1.5rem;
-   padding-top: 10px;
-   position:relative;
-   border:solid 1px black;
-   background:rgb(72, 71, 71);
-  }
 
-  .create-button{
-    position:relative;
-    left:-100px;
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background: #764ba2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Add Task Section */
+.add-task-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  margin-bottom: 30px;
+}
+
+.add-task-section h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+}
+
+.task-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.add-btn {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
+
+/* Main Content Area - Two Column Layout */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Tasks Section (Left Side) */
+.tasks-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tasks-section h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.no-tasks {
+  color: #999;
+  font-size: 1rem;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+}
+
+.task-item {
+  padding: 15px;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.task-item:hover {
+  border-color: #667eea;
+  transform: translateX(5px);
+}
+
+.task-item.active {
+  border-color: #667eea;
+  background: #f0f4ff;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.task-title {
+  font-size: 1rem;
+  color: #333;
+  flex: 1;
+}
+
+.deadline-badge {
+  font-size: 0.85rem;
+  color: #e74c3c;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+/* Task Details Section (Right Side) */
+.task-details {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+.task-details h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.task-details h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.details-section {
+  margin-bottom: 25px;
+}
+
+.details-section label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Deadline Input Group */
+.deadline-input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.deadline-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.deadline-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.set-btn {
+  padding: 10px 20px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.set-btn:hover {
+  background: #764ba2;
+}
+
+.deadline-display {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* Subtask Input Group */
+.subtask-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.subtask-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.subtask-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.add-subtask-btn {
+  padding: 10px 20px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.add-subtask-btn:hover {
+  background: #764ba2;
+}
+
+/* Subtask List */
+.subtask-list {
+  list-style: none;
+}
+
+.subtask-item {
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subtask-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.subtask-item span {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.subtask-item span.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.delete-subtask-btn {
+  padding: 5px 10px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.delete-subtask-btn:hover {
+  background: #c0392b;
+}
+
+/* Rename Task Styles */
+.title-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.title-display h3 {
+  margin: 0;
+}
+
+.rename-btn {
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.rename-btn:hover {
+  background: #764ba2;
+}
+
+.edit-title-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.edit-title-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #667eea;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.edit-title-input:focus {
+  outline: none;
+  border-color: #764ba2;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.save-title-btn {
+  padding: 10px 16px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.save-title-btn:hover {
+  background: #229954;
+}
+
+.cancel-btn {
+  padding: 10px 16px;
+  background: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background: #7f8c8d;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
   }
+  
+  .task-details {
+    max-height: none;
+  }
+}
 
