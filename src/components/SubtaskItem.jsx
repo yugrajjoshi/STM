@@ -19,5 +19,4 @@ function SubtaskItem({ subtask, onToggleSubtask, onDeleteSubtask }) {
     </li>
   )
 }
-
 export default SubtaskItem
